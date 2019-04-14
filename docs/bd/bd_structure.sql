@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 14-Abr-2019 às 03:21
+-- Generation Time: 14-Abr-2019 às 18:04
 -- Versão do servidor: 10.1.37-MariaDB
 -- versão do PHP: 7.1.24
 
@@ -34,6 +34,29 @@ CREATE TABLE `historico` (
   `data_status` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `maquina`
+--
+
+CREATE TABLE `maquina` (
+  `idmaquina` int(10) UNSIGNED NOT NULL,
+  `nome` varchar(150) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `situacao`
+--
+
+CREATE TABLE `situacao` (
+  `idstatus` int(10) UNSIGNED NOT NULL,
+  `nome` varchar(150) DEFAULT NULL,
+  `codigo` varchar(150) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -44,6 +67,34 @@ CREATE TABLE `historico` (
 ALTER TABLE `historico`
   ADD KEY `situacao_has_maquina_FKIndex1` (`status`),
   ADD KEY `situacao_has_maquina_FKIndex2` (`maquina`);
+
+--
+-- Indexes for table `maquina`
+--
+ALTER TABLE `maquina`
+  ADD PRIMARY KEY (`idmaquina`);
+
+--
+-- Indexes for table `situacao`
+--
+ALTER TABLE `situacao`
+  ADD PRIMARY KEY (`idstatus`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `maquina`
+--
+ALTER TABLE `maquina`
+  MODIFY `idmaquina` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `situacao`
+--
+ALTER TABLE `situacao`
+  MODIFY `idstatus` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
