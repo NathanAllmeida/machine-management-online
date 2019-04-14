@@ -1,0 +1,17 @@
+{
+
+	"name": "Machine",
+    "description": "This is a system for control of machines",
+    "authors": [
+        {
+            "name": "Nathan Almeida",
+            "email": "almeidanathan96@gmail.com"
+        }
+    ],
+    "require": {
+        "components/font-awesome": "^5.4",
+        "twbs/bootstrap": "^4.2",
+        "components/jquery": "^3.3",
+        "datatables/datatables": "^1.10"
+    }
+}

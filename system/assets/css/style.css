@@ -1,0 +1,259 @@
+	html,body{
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;		
+	}
+
+/*==========Menu==========*/
+	#menu{
+		background-color: #222222;
+		position: fixed;
+		z-index: 999;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 10vw;
+	}
+
+	#menu a{
+		padding: 20px 10px;
+		width: 100%;
+		height: 100%;
+		text-decoration: none;
+		color: #d3d3d3;	
+	}
+
+	#menu .nav-item:hover{
+		color:white;
+		background-color: #2842bc;
+	}
+
+	#menu .nav-item:active{
+		color:white;
+		background-color: #0021ba;
+	}
+	#menu a:active{
+		color:white;
+		background-color: #0021ba;
+	}
+	#menu .active{
+		color:white;
+		background-color: #0021ba;
+	}
+	#menu .nav-item{
+		display: flex;
+		justify-content: center;
+		align-items: center;	
+		border-bottom: 1px solid #d3d3d3;
+	}
+
+
+	.toggler{
+	    z-index: 9999;
+	    display: none; 
+	    position: relative;
+	    margin: 15px;
+	    padding: .25rem .75rem;
+	    font-size: 3.25rem;
+	    line-height: 1;
+	    color: white;
+	    background-color: transparent;
+	    border: 1px solid transparent;
+	    border-radius: .25rem;
+	}
+/*==========Main Panel==========*/
+
+	#main-panel{
+		color: #545454;
+		display: inline-block;
+		width: calc(100% - 10vw);
+		height: 100%;
+		max-width:100%;
+		margin-left: 10vw;
+		box-sizing: border-box;
+	}
+
+
+	#text-main-panel{
+		position: relative;	
+		border-radius: 30px;
+		background-color: #1c7ded; 
+		padding: 5%;
+		margin: 5%;
+	}
+	#text-main-panel h1,h2,h3,h4,h5,p,span{
+		z-index: 10;
+	}
+	.name-page{		
+		border-bottom: 2px solid #222222;		
+		margin-bottom: 15px;
+		padding: 15px 45px;
+	}
+	.content{
+		margin: 15px;
+	}
+
+
+/*==========Footer==========*/
+	.page-footer{
+		border-left:1px solid #d3d3d3;
+
+		background-color: #222222;
+	}
+
+	.footer-copyright{
+		border-top:1px solid #d3d3d3;
+		background-color: #0021ba;
+	}
+
+	footer .link{
+		font-size: 1em;
+		color:white;
+		background-color: #2842bc;
+		padding: 10px 15px;
+		text-decoration: none;
+	}
+/*==========Others==========*/
+.center-justify{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.justify{
+	display: flex;
+	justify-content: center;
+}
+
+.height-100vh{
+	height: auto;
+	width:  100%;
+	min-height:100%;
+	max-width: 100%;
+}
+
+.tittle::first-letter{
+	color:#2842bc;
+}
+
+
+b{
+	color: #2842bc;
+}
+
+.link{
+	font-size: 1.25em;
+	color:white;
+	background-color: #2842bc;
+	border: 2px solid #2842bc;
+	padding: 2px 15px;
+	text-decoration: none;
+}
+.link:hover{	
+	color:#2842bc;
+	background-color:white;
+	text-decoration: none;
+}
+.link-red{
+	background-color: red;
+	border: 2px solid red;
+}
+.link-red:hover{	
+	color:red;
+	background-color:white;
+	text-decoration: none;
+}
+
+/*==========Inputs==========*/
+
+input.input-border{
+	border: 0; 
+	padding: 7px 0; 
+	border-bottom: 1px solid #ccc;
+}
+input.input-border:focus{
+	border: none;
+	box-shadow: none;
+}
+input.input-border ~ .focus-border{
+	position: absolute; 
+	bottom: 0; 
+	left: 50%; 
+	width: 0; 
+	height: 2px; 
+	background-color: #343a40 ; 
+	transition: 0.4s;
+}
+input.input-border:hover ~ .focus-border{
+	width: 100%; 
+	transition: 0.4s; 
+	left: 0;
+}
+input.input-border:focus ~ .focus-border{
+	animation: mymove 1s forwards;
+	width: 100%; 
+	transition: 0.4s; 
+	left: 0;
+	
+}
+form .link{
+	float: right;
+}
+
+/*==========Fonts==========*/
+
+@font-face{
+	font-family: Earth;
+	src: url('../fonts/earthorbiterbold.ttf');
+}
+@font-face{
+	font-family: Solari;
+	src: url('../fonts/Solari.ttf');
+}
+
+/*==========Media Responsive==========*/
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+	 #menu{
+	 	position: fixed;
+		-ms-flex-flow: row nowrap;
+		flex-flow: row nowrap;
+		-ms-flex-pack: start;
+		justify-content: flex-start;
+		height: auto;
+		width: 100vw;
+	}
+	.navbar-nav.mr-auto{
+		position: relative;
+		left:-18em;
+		display: none;
+	}
+	.toggler{
+		display: block;
+	}
+	.show{
+		left: 0 !important;
+		display: block !important;
+	}
+
+	.hide{
+		left: -18em !important;
+		display: none !important;
+	}
+	#main-panel{
+		width: 100vw;
+		margin-left: 0vw;
+	}
+
+ 	.display-1 {
+    	font-size: 3em;
+  	}
+  	.display-2 {
+    	font-size: 2.6em;
+	}
+  	.display-3 {
+    	font-size: 2.5em;
+	}
+}
