@@ -23,7 +23,7 @@ $(document).on('click','.btn-deletar',function(){
       if (result.value) {
 
         $.ajax({
-            url: "status/Deletar",
+            url: "Status/Deletar",
             type: "POST",
             data: {'idstatus':data['idstatus']},
             beforeSend : function() {
@@ -76,7 +76,7 @@ $(document).ready(function(){
             }
         },
         "ajax": {
-            "url": 'status/Listar/',
+            "url": 'Status/Listar/',
         },
         "columnDefs": [           
             {
@@ -104,7 +104,7 @@ $(document).ready(function(){
 		var form = $("#form-save-add").serialize();
 		
 		$.ajax({
-			url: "status/Adicionar",
+			url: "Status/Adicionar",
 			type: "POST",
 			data: form,
 			beforeSend : function() {
@@ -132,7 +132,7 @@ $(document).ready(function(){
         var form = $("#form-save-ed").serialize();
         
         $.ajax({
-            url: "status/Alterar",
+            url: "Status/Alterar",
             type: "POST",
             data: form,
             beforeSend : function() {

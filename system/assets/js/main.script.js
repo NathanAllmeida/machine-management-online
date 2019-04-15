@@ -21,7 +21,7 @@ $(document).ready(function(){
             }
         },
         "ajax": {
-            "url": 'maquinas/ListarHistorico/',
+            "url": 'Maquinas/ListarHistorico/',
         },
         "columnDefs": [           
             {

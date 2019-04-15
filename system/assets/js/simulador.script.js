@@ -1,5 +1,5 @@
 var table = "";
-var time = 50000;
+var time = 10000;
 $(document).ready(function(){
     table = $('#tblMachines').DataTable({
         "oLanguage": {
@@ -37,20 +37,11 @@ $(document).ready(function(){
                  }*/
     });
     $("#tempo-simulador").val(time/1000);
-	$(document).on('click','#btn-alterar',function(){   
-		 $("#tempo-simulador").prop('disabled',false);
+    $(document).on('click','#btn-alterar',function(){   
+         $("#tempo-simulador").prop('disabled',false);
          $(this).parent().append('<button id="btn-cancelar" class="link link-red"><i class="ti ti-close"></i> Cancelar </button> ');
          $(this).parent().append('<button id="btn-salvar" class="link link"><i class="ti ti-check"></i> Salvar </button>');
          $(this).remove();
-	});
-    $(document).on('click','#btn-salvar',function(){            
-        $("#tempo-simulador").prop('disabled',true);
-        $("#btn-cancelar").remove();                 
-        $(this).parent().append("<button class='link' id='btn-alterar'><i class='ti ti-reload'></i> Alterar Tempo</button>");
-        $(this).remove();
-
-        time = $("#tempo-simulador").val() * 1000;
-        $.notify("Tempo alterado com sucesso!", "success");
     });
 
     $(document).on('click','#btn-cancelar',function(){            
@@ -60,7 +51,10 @@ $(document).ready(function(){
         $(this).remove();
     });
 
-    setInterval(function Temporizador(){   
+    function Temporizador(){           
+        if (time != $("#tempo-simulador").val() * 1000) {
+            time = $("#tempo-simulador").val() * 1000;
+        }
         var counter = time / 1000;
         var interval_counter = setInterval(function Contador(){            
             if (counter == 0){
@@ -90,7 +84,22 @@ $(document).ready(function(){
                     }             
             }
         });
-
+        table.ajax.reload();               
         return Temporizador;
-    }(), time);
+    }
+    var interval = setInterval(Temporizador(), time);
+    $(document).on('click','#btn-salvar',function(){            
+        $("#tempo-simulador").prop('disabled',true);
+        $("#btn-cancelar").remove();                 
+        $(this).parent().append("<button class='link' id='btn-alterar'><i class='ti ti-reload'></i> Alterar Tempo</button>");
+        $(this).remove();
+
+        time = $("#tempo-simulador").val() * 1000;
+        clearInterval(interval);
+        setTimeout(function(){
+            var interval = setInterval(Temporizador(), time);
+        },$("#time-counter").text().split('s')[0] * 1000);
+        $.notify("Tempo alterado com sucesso!", "success");
+    });
+
 });

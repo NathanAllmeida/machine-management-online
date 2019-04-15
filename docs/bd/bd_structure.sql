@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 14-Abr-2019 às 18:04
+-- Generation Time: 15-Abr-2019 às 10:49
 -- Versão do servidor: 10.1.37-MariaDB
 -- versão do PHP: 7.1.24
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `historico` (
+  `idhistorico` int(11) NOT NULL,
   `status` int(10) UNSIGNED NOT NULL,
   `maquina` int(10) UNSIGNED NOT NULL,
   `data_status` datetime NOT NULL
@@ -65,6 +66,7 @@ CREATE TABLE `situacao` (
 -- Indexes for table `historico`
 --
 ALTER TABLE `historico`
+  ADD PRIMARY KEY (`idhistorico`),
   ADD KEY `situacao_has_maquina_FKIndex1` (`status`),
   ADD KEY `situacao_has_maquina_FKIndex2` (`maquina`);
 
@@ -83,6 +85,12 @@ ALTER TABLE `situacao`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `historico`
+--
+ALTER TABLE `historico`
+  MODIFY `idhistorico` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `maquina`

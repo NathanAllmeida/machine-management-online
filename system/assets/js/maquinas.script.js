@@ -22,7 +22,7 @@ $(document).on('click','.btn-deletar',function(){
       if (result.value) {
 
         $.ajax({
-            url: "maquinas/Deletar",
+            url: "Maquinas/Deletar",
             type: "POST",
             data: {'idmaquina':data['idmaquina']},
             beforeSend : function() {
@@ -75,7 +75,7 @@ $(document).ready(function(){
             }
         },
         "ajax": {
-            "url": 'maquinas/Listar/',
+            "url": 'Maquinas/Listar/',
         },
         "columnDefs": [           
             {
@@ -103,7 +103,7 @@ $(document).ready(function(){
 		var form = $("#form-save-add").serialize();
 		
 	   $.ajax({
-			url: "maquinas/Adicionar",
+			url: "Maquinas/Adicionar",
 			type: "POST",
 			data: form,
 			beforeSend : function() {
@@ -131,7 +131,7 @@ $(document).ready(function(){
         var form = $("#form-save-ed").serialize();
         
         $.ajax({
-            url: "maquinas/Alterar",
+            url: "Maquinas/Alterar",
             type: "POST",
             data: form,
             beforeSend : function() {
